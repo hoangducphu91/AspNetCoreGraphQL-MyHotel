@@ -6,7 +6,7 @@ namespace MyHotel.EntityFrameworkCore
 {
     public class MyHotelDbContext : DbContext
     {
-        public static string DbConnectionString = "Server=localhost; Database=MyHotelDb; Trusted_Connection=True;";
+        public static string DbConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyHotelDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         public MyHotelDbContext(DbContextOptions<MyHotelDbContext> options)
             : base(options)

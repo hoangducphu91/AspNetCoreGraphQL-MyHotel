@@ -23,7 +23,7 @@ export class FetchDataComponent {
   fetchFromRestApi(): any {
     this.http.get<Reservation[]>(this.baseUrl + 'api/Reservations/List').subscribe(result => {
       this.reservations = result;
-      this.fetchSource = "(1) Old School RestAPI";
+      this.fetchSource = "(1) Old School RestAPI: " + this.baseUrl + 'api/Reservations/List';
     }, error => console.error(error));
   }
 
@@ -31,7 +31,7 @@ export class FetchDataComponent {
   fetchFromGraphQlClient(): any {
     this.http.get<Reservation[]>(this.baseUrl + 'api/Reservations/ListFromGraphql').subscribe(result => {
       this.reservations = result;
-      this.fetchSource = "(2) .NET GraphQL Client";
+      this.fetchSource = "(2) .NET GraphQL Client: " + this.baseUrl + 'api/Reservations/ListFromGraphql';
     },
       error => console.error(error));
   }
@@ -53,7 +53,7 @@ export class FetchDataComponent {
 
     this.http.get<any>(this.baseUrl + 'graphql/' + query).subscribe(result => {
       this.reservations = result.data.reservations;
-      this.fetchSource = "(3) Directly From GraphQL";
+      this.fetchSource = "(3) Directly From GraphQL: " + this.baseUrl + 'graphql/' + query;
     },
       error => console.error(error));
   }
